@@ -78,6 +78,24 @@ before("/protected/*", (req, res) -> {
     }
 });
 ```
+## Testing
+
+To test your application use `POSTMAN` or `CURL` with the below examples, with variables to be replaced inside angled brackets:
+
+Verify it is running:
+``` bash
+curl http://localhost:4567/hello
+```
+
+Log in to get an auth token:
+``` bash
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "username=<username>&password=<password>" http://localhost:4567/login
+```
+
+Use the auth token to access the protected end points:
+``` bash
+checkouts % curl -H "Authorization: Bearer <tokenFromLogin>" http://localhost:4567/protected/hello
+```
 
 ## License
 
